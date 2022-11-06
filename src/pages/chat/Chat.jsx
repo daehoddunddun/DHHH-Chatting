@@ -1,10 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Chat.scss";
 import ChatRoom from "./components/ChatRoom";
 import ChatSub from "./components/ChatSub";
 
 function Chat() {
+  const navigate = useNavigate();
+
+  const createRoom = () => {
+    navigate("/chat/create");
+  };
   return (
     <div className="chat-container">
       <div className="chat-item-warp">
@@ -18,7 +23,9 @@ function Chat() {
           </div>
           <div className="chat-create-item">
             <p className="chat-room-length">3 rooms - 13 users</p>
-            <button className="chat-create-btn">방 만들기</button>
+            <button className="chat-create-btn" onClick={createRoom}>
+              방 만들기
+            </button>
           </div>
           <ChatRoom />
         </div>
