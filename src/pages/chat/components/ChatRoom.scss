@@ -3,11 +3,14 @@
   justify-content: space-around;
   width: 100%;
   padding-top: 20px;
+
   .room-num {
     font-size: 25px;
   }
   .chat-room-name {
     font-size: 25px;
+    text-decoration: none;
+    cursor: pointer;
   }
   .chat-create-user {
     font-size: 25px;

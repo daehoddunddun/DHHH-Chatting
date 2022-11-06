@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./ChatRoom.scss";
 
 function ChatRoom(props) {
@@ -6,7 +7,9 @@ function ChatRoom(props) {
     <div>
       <div className="chat-room-list">
         <p className="room-num">1</p>
-        <strong className="chat-room-name">방제목입니다1</strong>
+        <Link to="/room" className="chat-room-name">
+          방제목입니다1
+        </Link>
         <div className="chat-create-user">김아무개</div>
         <div className="chat-user-max">2/4</div>
       </div>

@@ -10,6 +10,7 @@ function Chat() {
   const createRoom = () => {
     navigate("/chat/create");
   };
+
   return (
     <div className="chat-container">
       <div className="chat-item-warp">
@@ -18,7 +19,14 @@ function Chat() {
             <Link to="/" className="go-home">
               Home
             </Link>
-            <p className="reload">새로고침</p>
+            <p
+              className="reload"
+              onClick={() => {
+                location.reload();
+              }}
+            >
+              새로고침
+            </p>
             <img className="peoples-img" src="./peoples.png" alt="사람이미지" />
           </div>
           <div className="chat-create-item">

@@ -25,6 +25,10 @@
         letter-spacing: 2px;
         margin: 10px 0;
       }
+
+      .logout {
+        cursor: pointer;
+      }
     }
   }
   .chat-sub-box {
@@ -45,6 +49,7 @@
       border: 1px solid gray;
       border-radius: 10px;
       font-size: 20px;
+      outline: none;
     }
 
     .select-view {
@@ -58,6 +63,7 @@
       input {
         width: 20px;
         height: 20px;
+        outline: none;
       }
 
       p {
