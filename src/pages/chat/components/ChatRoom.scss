@@ -1,0 +1,18 @@
+.chat-room-list {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding-top: 20px;
+  .room-num {
+    font-size: 25px;
+  }
+  .chat-room-name {
+    font-size: 25px;
+  }
+  .chat-create-user {
+    font-size: 25px;
+  }
+  .chat-user-max {
+    font-size: 25px;
+  }
+}

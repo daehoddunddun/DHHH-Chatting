@@ -1,0 +1,80 @@
+.chat-container {
+  position: relative;
+  background: rgb(96, 98, 103);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+
+  .chat-item-warp {
+    display: flex;
+    width: 120rem;
+    height: 90%;
+    margin: 0 auto;
+
+    .chat-main-box {
+      margin-top: 50px;
+      background: rgb(254, 254, 254);
+      width: 80rem;
+      margin-right: 20px;
+      border-radius: 8px;
+
+      .chat-menu-item {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        margin: 10px 20px;
+
+        .go-home {
+          font-size: 30px;
+          font-weight: 500;
+          text-decoration: none;
+          margin-left: 20px;
+        }
+
+        .reload {
+          font-size: 20px;
+          margin-left: 20px;
+          color: gray;
+        }
+
+        .peoples-img {
+          width: 180px;
+          margin-left: 20px;
+        }
+      }
+      .chat-create-item {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 100%;
+        padding: 5px 0;
+        background: rgb(233, 233, 233);
+
+        .chat-create-btn {
+          background: white;
+          font-size: 25px;
+          margin-right: 10px;
+          border: 2px solid gray;
+          border-radius: 5px;
+        }
+        .chat-room-length {
+          font-size: 20px;
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+
+  .chat-footer-wrap {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    bottom: 10px;
+    p {
+      font-size: 18px;
+    }
+  }
+}
