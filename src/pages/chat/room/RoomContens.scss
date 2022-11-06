@@ -33,6 +33,17 @@
       .room-menu-icon {
         font-size: 20px;
         color: rgb(164, 164, 165);
+
+        .move-loby {
+          font-size: 20px;
+          color: rgb(97, 97, 102);
+          margin-left: 10px;
+          padding: 2px;
+          border: 1px solid rgb(97, 97, 102);
+          color: rgb(97, 97, 102);
+          text-decoration: none;
+          cursor: pointer;
+        }
       }
     }
 

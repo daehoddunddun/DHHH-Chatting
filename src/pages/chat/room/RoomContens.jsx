@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./RoomContens.scss";
 
 function RoomContens(props) {
@@ -9,7 +10,12 @@ function RoomContens(props) {
           <p className="room-info">
             <span className="room-member-max">2/4</span>방제목입니다1
           </p>
-          <p className="room-menu-icon">컨텐츠 추가 구현중...</p>
+          <p className="room-menu-icon">
+            컨텐츠 추가 구현중...
+            <Link to="/chat" className="move-loby">
+              나가기
+            </Link>
+          </p>
         </div>
         <input className="post-input" type="text" />
         <button className="input-btn">POST!</button>
