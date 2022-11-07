@@ -1,4 +1,6 @@
 import React from "react";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import "./Chat.scss";
 import ChatRoom from "./components/ChatRoom";
@@ -10,6 +12,9 @@ function Chat() {
   const createRoom = () => {
     navigate("/chat/create");
   };
+
+  const room = useSelector((state) => state);
+  console.log("리덕스 저장데이터", room);
 
   return (
     <div className="chat-container">
