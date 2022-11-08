@@ -1,8 +1,42 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./RoomContens.scss";
+import io from "socket.io-client";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 function RoomContens(props) {
+  const [inputMeassage, setInputMessage] = useState("");
+  const [receive, setReceive] = useState([]);
+
+  const setMessage = (e) => {
+    setInputMessage(e.target.value);
+  };
+
+  const socket = io.connect("http://localhost:4002");
+  const roomData = useSelector((state) => state);
+
+  const sendMessage = () => {
+    socket.emit("init", {
+      name: roomData.user.username,
+      message: inputMeassage,
+    });
+    setInputMessage("");
+  };
+
+  socket.on("message", (message) => {
+    console.log(message, "수신데이터");
+    setReceive(message.chatData);
+  });
+
+  const navigate = useNavigate();
+
+  const moveLoby = () => {
+    socket.disconnect();
+    navigate("/chat");
+  };
+
   return (
     <div className="room-contents-wrap">
       <div className="message-post-box">
@@ -12,61 +46,39 @@ function RoomContens(props) {
           </p>
           <p className="room-menu-icon">
             컨텐츠 추가 구현중...
-            <Link to="/chat" className="move-loby">
+            <a className="move-loby" onClick={moveLoby}>
               나가기
-            </Link>
+            </a>
           </p>
         </div>
-        <input className="post-input" type="text" />
-        <button className="input-btn">POST!</button>
+        <input
+          className="post-input"
+          type="text"
+          value={inputMeassage}
+          onChange={setMessage}
+        />
+        <button className="input-btn" onClick={sendMessage}>
+          POST!
+        </button>
       </div>
       <div className="view-input-message">
         <p className="login-user">► ► 김아무개님이 입장하셨습니다.</p>
         <p className="login-user">► ► 이아무개님이 입장하셨습니다.</p>
-        <li className="view-input-box">
-          <div className="user-profile">
-            <img
-              className="user-profile-img"
-              src="./profile.png"
-              alt="유저프로필"
-            />
-            <p className="user-name">김아무개</p>
-          </div>
-          <p className="user-text">안녕하세요.</p>
-        </li>
-        <li className="view-input-box2">
-          <div className="user-profile">
-            <img
-              className="user-profile-img"
-              src="./profile.png"
-              alt="유저프로필"
-            />
-            <p className="user-name">이아무개</p>
-          </div>
-          <p className="user-text">헉 김아무개님 안녕하세요.</p>
-        </li>
-        <li className="view-input-box">
-          <div className="user-profile">
-            <img
-              className="user-profile-img"
-              src="./profile.png"
-              alt="유저프로필"
-            />
-            <p className="user-name">김아무개</p>
-          </div>
-          <p className="user-text">저,,,정말,,,취업하고 싶어요.</p>
-        </li>
-        <li className="view-input-box2">
-          <div className="user-profile">
-            <img
-              className="user-profile-img"
-              src="./profile.png"
-              alt="유저프로필"
-            />
-            <p className="user-name">이아무개</p>
-          </div>
-          <p className="user-text">힘내요,,,🥹</p>
-        </li>
+        {receive.map((item) => {
+          return (
+            <li className="view-input-box">
+              <div className="user-profile">
+                <img
+                  className="user-profile-img"
+                  src="./profile.png"
+                  alt="유저프로필"
+                />
+                <p className="user-name">{item.name}</p>
+              </div>
+              <p className="user-text">{item.message}</p>
+            </li>
+          );
+        })}
       </div>
     </div>
   );

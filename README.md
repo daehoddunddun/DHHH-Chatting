@@ -34,3 +34,19 @@
 4. 11월 06일 chatting 레이아웃 작업(ver-1.0)
 
 <img width="1319" alt="스크린샷 2022-11-06 오후 10 33 42" src="https://user-images.githubusercontent.com/98578138/200173855-f77dd683-0998-4697-a6b7-707802809990.png">
+
+5. 11월 07일 store에 state 관리(ver-1.0)
+
+5-1. 스토어에 저장하는 state = 유저정보, 유저가 채팅방을 만들 때 입력한 정보
+
+<img width="506" alt="스크린샷 2022-11-07 오후 9 21 34" src="https://user-images.githubusercontent.com/98578138/200310416-7e4fa6ec-8eeb-4389-a76b-a21dfbd16af5.png">
+
+<img width="318" alt="스크린샷 2022-11-07 오후 9 23 26" src="https://user-images.githubusercontent.com/98578138/200310594-a1c65a2e-adda-4b89-a45c-77c21bb743f6.png">
+
+<img width="633" alt="스크린샷 2022-11-07 오후 9 22 40" src="https://user-images.githubusercontent.com/98578138/200310553-6a3b74a4-3834-4f0f-8ce5-3b289016ec42.png">
+
+<img width="221" alt="스크린샷 2022-11-07 오후 9 24 37" src="https://user-images.githubusercontent.com/98578138/200310660-a505864e-9d42-4cce-9ff8-e8bb398a878e.png">
+
+5-2 실제 입력된 store에 저장된 결과값을 콘솔로 찍어봄
+
+<img width="271" alt="스크린샷 2022-11-07 오후 9 22 53" src="https://user-images.githubusercontent.com/98578138/200310678-f0b152b4-46ac-4bf5-a2d2-75307a6c8d67.png">
