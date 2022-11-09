@@ -1,8 +1,9 @@
 import React from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./ChatRoom.scss";
 
-function ChatRoom(props) {
+function ChatRoom() {
   return (
     <div>
       <div className="chat-room-list">
