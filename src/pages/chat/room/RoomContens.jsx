@@ -5,6 +5,7 @@ import "./RoomContens.scss";
 import io from "socket.io-client";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import Loding from "./Loding";
 
 function RoomContens(props) {
   const roomData = useSelector((state) => state);
@@ -34,7 +35,6 @@ function RoomContens(props) {
   };
 
   socket.on("message", (message) => {
-    console.log(message, "수신데이터");
     setReceive(message.chatData);
   });
 
@@ -77,21 +77,26 @@ function RoomContens(props) {
         {joinUserName.map((item) => {
           return <p className="login-user">► ► {item}님이 입장하셨습니다.</p>;
         })}
-        {receive.map((item) => {
-          return (
-            <li className="view-input-box">
-              <div className="user-profile">
-                <img
-                  className="user-profile-img"
-                  src="./profile.png"
-                  alt="유저프로필"
-                />
-                <p className="user-name">{item.name}</p>
-              </div>
-              <p className="user-text">{item.message}</p>
-            </li>
-          );
-        })}
+
+        {receive ? (
+          receive.map((item) => {
+            return (
+              <li className="view-input-box">
+                <div className="user-profile">
+                  <img
+                    className="user-profile-img"
+                    src="./profile.png"
+                    alt="유저프로필"
+                  />
+                  <p className="user-name">{item.name}</p>
+                </div>
+                <p className="user-text">{item.message}</p>
+              </li>
+            );
+          })
+        ) : (
+          <Loding></Loding>
+        )}
       </div>
     </div>
   );
