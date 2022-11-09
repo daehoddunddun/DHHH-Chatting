@@ -39,14 +39,18 @@
 
 5-1. 스토어에 저장하는 state = 유저정보, 유저가 채팅방을 만들 때 입력한 정보
 
-<img width="506" alt="스크린샷 2022-11-07 오후 9 21 34" src="https://user-images.githubusercontent.com/98578138/200310416-7e4fa6ec-8eeb-4389-a76b-a21dfbd16af5.png">
-
 <img width="318" alt="스크린샷 2022-11-07 오후 9 23 26" src="https://user-images.githubusercontent.com/98578138/200310594-a1c65a2e-adda-4b89-a45c-77c21bb743f6.png">
 
 <img width="633" alt="스크린샷 2022-11-07 오후 9 22 40" src="https://user-images.githubusercontent.com/98578138/200310553-6a3b74a4-3834-4f0f-8ce5-3b289016ec42.png">
 
-<img width="221" alt="스크린샷 2022-11-07 오후 9 24 37" src="https://user-images.githubusercontent.com/98578138/200310660-a505864e-9d42-4cce-9ff8-e8bb398a878e.png">
+<img width="403" alt="스크린샷 2022-11-08 오후 11 45 03" src="https://user-images.githubusercontent.com/98578138/200595278-cb84db3c-fa96-4398-ae6f-5bbdf81fa40f.png">
 
-5-2 실제 입력된 store에 저장된 결과값을 콘솔로 찍어봄
+6. 11월 08일 io.socket를 통한 서버통신(ver-1.0)
 
-<img width="271" alt="스크린샷 2022-11-07 오후 9 22 53" src="https://user-images.githubusercontent.com/98578138/200310678-f0b152b4-46ac-4bf5-a2d2-75307a6c8d67.png">
+6-1. 채팅방 입장 시 서버 연결/ input 데이터 전송 / 전송한 input 데이터 수신
+
+6-2. input 데이터 전송과 동시에 서버에서 배열 데이터로 다시 전송 > 클라이언트는 해당 데이터를 수신과 동시에 state로 실시간 화면 표출(채팅 내용)
+
+![Uploading 화면-기록-2022-11-08-오후-11.56.26.gif…]()
+
+<img width="391" alt="스크린샷 2022-11-08 오후 11 32 12" src="https://user-images.githubusercontent.com/98578138/200597549-bd05570c-d41e-4eae-a508-6830a07b32f4.png">

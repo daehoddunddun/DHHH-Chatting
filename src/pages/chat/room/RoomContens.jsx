@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useRef } from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./RoomContens.scss";
@@ -7,15 +7,23 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 function RoomContens(props) {
+  const roomData = useSelector((state) => state);
   const [inputMeassage, setInputMessage] = useState("");
   const [receive, setReceive] = useState([]);
+  const [joinUserName, setJoinUserName] = useState([]);
 
   const setMessage = (e) => {
     setInputMessage(e.target.value);
   };
 
   const socket = io.connect("http://localhost:4002");
-  const roomData = useSelector((state) => state);
+
+  useEffect(() => {
+    socket.emit("join", { name: roomData.user.username, userId: 1 });
+    socket.on("joinMessage", (joinMessage) => {
+      setJoinUserName(joinMessage.userEnter);
+    });
+  }, [roomData]);
 
   const sendMessage = () => {
     socket.emit("init", {
@@ -31,11 +39,15 @@ function RoomContens(props) {
   });
 
   const navigate = useNavigate();
-
   const moveLoby = () => {
-    socket.disconnect();
+    socket.on("disconnect");
     navigate("/chat");
   };
+
+  const scrollRef = useRef();
+  useEffect(() => {
+    scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+  }, [sendMessage]);
 
   return (
     <div className="room-contents-wrap">
@@ -61,9 +73,10 @@ function RoomContens(props) {
           POST!
         </button>
       </div>
-      <div className="view-input-message">
-        <p className="login-user">► ► 김아무개님이 입장하셨습니다.</p>
-        <p className="login-user">► ► 이아무개님이 입장하셨습니다.</p>
+      <div className="view-input-message" ref={scrollRef}>
+        {joinUserName.map((item) => {
+          return <p className="login-user">► ► {item}님이 입장하셨습니다.</p>;
+        })}
         {receive.map((item) => {
           return (
             <li className="view-input-box">
