@@ -1,6 +1,6 @@
-import React, { useCallback, useRef } from "react";
+import React, { useRef } from "react";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./RoomContens.scss";
 import { io } from "socket.io-client";
 import { useEffect } from "react";
@@ -9,6 +9,10 @@ import { useSelector } from "react-redux";
 function RoomContens() {
   const socket = io.connect("http://localhost:4002");
   socket.emit("connection");
+
+  const userColor = useSelector((state) => {
+    return state.color.colors;
+  });
 
   const roomData = useSelector((state) => state);
   const [inputMeassage, setInputMessage] = useState("");
@@ -20,7 +24,11 @@ function RoomContens() {
   };
 
   useEffect(() => {
-    socket.emit("join", { name: roomData.user.username, userId: 1 });
+    socket.emit("join", {
+      name: roomData.user.username,
+      userId: 1,
+      color: userColor,
+    });
     socket.on("joinMessage", (joinMessage) => {
       setJoinUserName(joinMessage.userEnter);
     });
@@ -31,6 +39,7 @@ function RoomContens() {
     socket.emit("init", {
       name: roomData.user.username,
       message: inputMeassage,
+      color: userColor,
     });
 
     setInputMessage("");
@@ -85,12 +94,13 @@ function RoomContens() {
 
         {receive.map((item) => {
           return (
-            <li className="view-input-box">
+            <li className="view-input-box" index={item.name}>
               <div className="user-profile">
                 <img
                   className="user-profile-img"
                   src="./profile.png"
                   alt="유저프로필"
+                  style={{ background: item.color }}
                 />
                 <p className="user-name">{item.name}</p>
               </div>

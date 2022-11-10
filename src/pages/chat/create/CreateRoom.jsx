@@ -7,7 +7,6 @@ import { useState } from "react";
 
 function CreateRoom(props) {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const rollBackBtn = () => {
     navigate("/chat");
