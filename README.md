@@ -49,9 +49,11 @@
 
 <img width="1313" alt="스크린샷 2022-11-06 오후 8 24 56" src="https://user-images.githubusercontent.com/98578138/200167834-14dfb1c8-62c2-4056-b411-e93f7d67777c.png">
 
-4. 11월 06일 chatting 레이아웃 작업(ver-1.0)
+4. 11월 06일 chatting 레이아웃 작업(ver-1.0-최초일자 11월 05일/ update.ver-1.1 클라이언트 색상 변경 기능 추가(유저별 구분가능))
 
 <img width="1319" alt="스크린샷 2022-11-06 오후 10 33 42" src="https://user-images.githubusercontent.com/98578138/200173855-f77dd683-0998-4697-a6b7-707802809990.png">
+
+<img width="1367" alt="스크린샷 2022-11-10 오후 6 55 41" src="https://user-images.githubusercontent.com/98578138/201060527-86004f46-09c4-4f2a-b043-43a015e2c03d.png">
 
 5. 11월 07일 store에 state 관리(ver-1.0)
 
