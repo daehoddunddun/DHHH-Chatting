@@ -4,9 +4,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { setUserColor } from "../../../redux/store";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function ChatSub(props) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const logoutBtn = () => {
+    navigate("/");
+  };
+
   const user = useSelector((state) => {
     return state.user;
   });
@@ -47,7 +53,9 @@ function ChatSub(props) {
         />
         <div className="user-profile-box">
           <p className="profile-name">{user.username}</p>
-          <p className="logout">로그아웃</p>
+          <p className="logout" onClick={logoutBtn}>
+            로그아웃
+          </p>
         </div>
       </div>
       <div className="chat-sub-box">

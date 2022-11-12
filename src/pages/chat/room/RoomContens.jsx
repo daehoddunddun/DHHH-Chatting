@@ -34,20 +34,28 @@ function RoomContens() {
     });
   }, [roomData]);
 
-  const sendMessage = (e) => {
-    e.preventDefault();
-    socket.emit("init", {
-      name: roomData.user.username,
-      message: inputMeassage,
-      color: userColor,
-    });
+  const clickSendMessage = (e) => {
+    if (inputMeassage.length > 0) {
+      e.preventDefault();
+      socket.emit("init", {
+        name: roomData.user.username,
+        message: inputMeassage,
+        color: userColor,
+      });
+      setInputMessage("");
+    } else {
+      alert("메세지를 입력해주세요");
+    }
+  };
 
-    setInputMessage("");
+  const enterSendMessage = (e) => {
+    if (e.key === "Enter") {
+      clickSendMessage(e);
+    }
   };
 
   useEffect(() => {
     socket.on("connection", (value) => {
-      console.log(value);
       setReceive(value.chatData);
     });
   });
@@ -61,7 +69,7 @@ function RoomContens() {
   const scrollRef = useRef();
   useEffect(() => {
     scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-  }, [sendMessage]);
+  }, [enterSendMessage]);
 
   return (
     <div className="room-contents-wrap">
@@ -82,8 +90,9 @@ function RoomContens() {
           type="text"
           value={inputMeassage}
           onChange={setMessage}
+          onKeyPress={enterSendMessage}
         />
-        <button className="input-btn" onClick={sendMessage}>
+        <button className="input-btn" onClick={clickSendMessage}>
           POST!
         </button>
       </div>
