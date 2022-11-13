@@ -12,7 +12,7 @@
 
 2. <img src="https://img.shields.io/badge/Redux-fuchsia?style=flat&logo=Redux&logoColor=white&magin-left=5px"/> 를 통한 상태관리
 
-3. 채팅 기능구현을 위한 express, socket.io 사용 (첫 풀스텍 도전!)
+3. 채팅 기능구현을 위한  <img src="https://img.shields.io/badge/express-blue?style=flat&logo=express&logoColor=white&magin-left=5px"/>, <img src="https://img.shields.io/badge/socket.io-gray?style=flat&logo=socket.io&logoColor=white&magin-left=5px"/> 사용 (첫 풀스텍 도전!)
 
 ---
 
